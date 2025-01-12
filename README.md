@@ -5,6 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Run below commands in project root directory for deploying applications in Local:
 
+Node version => v22.6.0
+
 1. npm install
 2. npm run run:all
 
