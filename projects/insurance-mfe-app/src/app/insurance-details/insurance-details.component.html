@@ -1,0 +1,91 @@
+<div class="container" style="border-style: solid">
+    <br>
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col col-8 text-center">
+            <h3>Find Your Policy Details(Insurance MicroFrontend)</h3>
+        </div>
+        <div class="col ">
+        </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col col-10 text-center">
+          <h6>(Search policy will also shared the data to container application via custom events which will be visible in header.)</h6>
+      </div>
+      <div class="col ">
+      </div>
+  </div>
+    <div class="row">
+      <div class="col ">
+      </div>
+      <div class="col col-8">
+        Policy Number (PL1 to PL100):
+      </div>
+      <div class="col ">
+      </div>
+    <div class="row">
+      <div class="col ">
+      </div>
+      <div class="col col-8">
+        <div class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Enter Policy Number" aria-label="Search" #filter (keydown.enter)="filterResults(filter.value)">
+            <button class="btn btn-secondary" type="button" (click)="filterResults(filter.value)">Search</button>
+        </div>
+      </div>
+      <div class="col">
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row" *ngIf="filteredPolicy">
+        <div class="col ">
+        </div>
+        <div class="col col-8">  
+            <div class="card mb-4">
+                <div class="card-header bg-info"><b> Policy Details </b></div>
+                <div class="card-body">
+                    <table class="table">
+                        <tbody>
+                          <tr>
+                            <th scope="row">Policy Number:</th>
+                            <td>{{filteredPolicy?.policyNumber}}</td>
+                            <th scope="row">Policy Premium:</th>
+                            <td>{{filteredPolicy?.premium | currency }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Coverage Amount:</th>
+                            <td>{{filteredPolicy?.coverage?.amount | currency}}</td>
+                            <th scope="row">Coverage Type:</th>
+                            <td>{{filteredPolicy?.coverage?.type}}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Name:</th>
+                            <td>{{filteredPolicy?.policyHolder?.name}}</td>
+                            <th scope="row">Age:</th>
+                            <td>{{filteredPolicy?.policyHolder?.age}}</td>
+                        </tr>
+                           <tr>
+                            <th scope="row">Gender:</th>
+                            <td>{{filteredPolicy?.policyHolder?.gender}}</td>
+                            <th scope="row">Beneficiary Name:</th>
+                            <td>{{filteredPolicy?.beneficiaries[0]?.name}}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Beneficiary Relation</th>
+                            <td>{{filteredPolicy?.beneficiaries[0]?.relationship}}</td>
+                            <th scope="row">Beneficiary Percentage:</th>
+                            <td>{{filteredPolicy?.beneficiaries[0]?.percentage}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+  </div>
+ 
